@@ -9,7 +9,15 @@ $light-gray: #999999
 $gray: #505050
 $title-font-size: 1.3em
 
+.digit
+  font-family: "Helvetica Neue", Arial, serif
+  font-weight: 100
 
+.phone
+  font-weight: 300
+
+.sticker-digit
+  font-weight: 200
 
 =drop-shadow($opacity)
   filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, $opacity))
@@ -62,8 +70,8 @@ $title-font-size: 1.3em
     color: $gray
     letter-spacing: 1px
     box-shadow: 0 1px 2px $light-gray
-    @include border-top-radius(5px)
-    @include border-bottom-radius(5px)
+    @include border-top-radius(150px)
+    @include border-bottom-radius(150px)
     @include transform(translateZ(0))
     transition: box-shadow 0.25s ease-in
     &:hover
@@ -107,17 +115,18 @@ body
   width: 100%
   height: 100%
   font-family: 'Raleway Cyr', sans-serif
-  background: url("img/bg7.jpg")
+  font-variant-numeric: oldstyle-nums
+  background: url("img/main.jpg")
   background-position: top
   background-repeat: no-repeat
   background-size: cover
 
 .head
   position: absolute
-  //background: url("img/bg7.jpg")
-  //background-position: top
-  //background-repeat: no-repeat
-  //background-size: cover
+  background: url("img/main.jpg")
+  background-position: top
+  background-repeat: no-repeat
+  background-size: cover
   height: 100%
   width: 100%
 
@@ -130,7 +139,7 @@ body
   font-family: 'Raleway Cyr', serif
   h1
     font-family: 'Museo Sans Cyr', sans-serif
-    font-size: 4em
+    font-size: 2.5em
     text-align: center
     font-weight: 600
     //color: #2d2d2d
@@ -146,7 +155,7 @@ body
       //background-color: #fff
       //background-color: rgba(255,255,255,0.8)
   p
-    font-size: 1em
+    font-size: 1.2em
     //color: $gray
     color: $white
     font-weight: 400
@@ -158,15 +167,15 @@ body
       //padding: 3px 0px
       //background-color: rgba(255,255,255,0.8)
   .button
-    font-size: 1.1em
+    font-size: 1.2em
     text-align: center
     width: 50%
     margin-left: 25%
-    font-weight: 600
+    font-weight: 400
     color: $gray
     letter-spacing: 2px
     //border: solid 1px $white
-    border-radius: 10px
+    border-radius: 150px
     //background-color: rgba(255,255,255,0.8)
     //background-color: rgba(253, 236, 10, 1)
     background-color: $yellow // Old browsers
@@ -207,22 +216,24 @@ body
       font-size: 1.9em
       vertical-align: bottom
       padding-top: 25px
-      //padding-bottom: 10px
+      margin-bottom: -9px
     &:last-child
       border: solid 1px $yellow
       color: $gray
       background-color: $yellow
-      padding-top: 15px
+      padding-top: 10px
       margin-left: 10px
-      padding-bottom: 15px
+      padding-bottom: 10px
+      padding-left: 15px
+      padding-right: 15px
       font-weight: 600
       font-size: 1.1em
       //vertical-align: middle
-      @include border-top-radius(7px)
-      @include border-bottom-radius(7px)
+      @include border-top-radius(150px)
+      @include border-bottom-radius(150px)
       //padding-left: 20px
     &:hover
-      background-color: rgba(0, 0, 0, 0.3)
+      color: $yellow
       transition: 0.1s
       cursor: pointer
     img
@@ -230,6 +241,8 @@ body
       margin-top: -27%
       @include transform(translateY(21%))
       padding-right: 10px
+    span
+      margin-top: 5px
 
 
 .menu-bottom
@@ -281,10 +294,11 @@ body
 
 
 .two
-  background-color: $white
+  background-color: $blue
+  background-image: url("img/bg4.png")
   .two-title
-    +title($white,$blue)
-  +stripes($blue)
+    +title($blue,$white)
+  +stripes($white)
   .two-block
     background-color: #fff
     @include border-top-radius(5px)
@@ -314,114 +328,17 @@ body
 .three
   background-color: $blue
   background-image: url("img/bg4.png")
-
-  .three-row-1
-    .three-title
-
-      +title($blue,$white)
-
-    +stripes($white)
-  .three-row-2
-    .three-one
-      .three-one-content
-        +three-content
-    .three-two
-      .three-two-content
-        +three-content
-    .three-three
-      .three-three-content
-        +three-content
-
-    .three-slide-title
-      //+title($gray,transparent)
-      h2
-        margin: 0
-        font-size: 1.7em
-        padding-top: 20px
-        padding-bottom: 15px
-        font-weight: 200
-        text-align: center
-        color: $gray
-    .three-slide-text
-      text-align: center
-      color: $light-gray
-      p
-        margin: 0
-        font-weight: 100
-    //+button
-    //.col-md-1
-      padding: 0
-      width: 2.1%
-    .col-md-6
-      padding: 0
-      //width: 47.9%
-    .three-block-sm
-      &:hover
-        cursor: pointer
-      font-size: 4em
-      @include transform(translateY(-50%))
-      margin-left: 5px
-      margin-right: 5px
-      //margin-top: 200px
-      text-align: center
-      color: $light-gray
-      position: absolute
-      z-index: 99999
-    .right-arrow
-      right: 0
-
-  .first-block
-    border-right: solid 1px #f5f5f5
-  .second-block
-    //border-left: solid 1px $gray
-
-    //margin-bottom: 24px
-    .title-case
-      //+title($gray,transparent)
-      margin-top: -24px
-      padding-top: 24px
-      h3
-        font-size: 1.5em
-        font-weight: 200
-        color: $gray
-        text-align: center
-
-    .text-case
-      padding-left: 24px
-      .text-case-first
-        display: inline-block
-        width: 30%
-        text-align: left
-        margin-left: 15px
-        img
-          width: 25%
-          +drop-shadow(0.4)
-        p
-        color: $light-gray
-        font-weight: 100
-      .text-case-second
-        display: inline-block
-        width: 30%
-        text-align: left
-        margin-left: 15px
-        img
-          width: 25%
-          +drop-shadow(0.4)
-        p
-        color: $light-gray
-        font-weight: 100
-      .slide2
-        width: 40%
-        img
-          width: 30%
-    +button(80%,10%)
-    .btn-s3
-      margin-top: -2px
+  .three-title
+    +title($blue,$white)
+  +stripes($white)
+  +button(30%,35%)
 
 .four
-  background-color: $white
+  background-color: $blue
+  background-image: url("img/bg4.png")
   .four-title
-    +title($white,$blue)
+    +title($blue,$white)
+  +stripes($white)
   .four-block
     .sticker
       position: absolute
@@ -454,7 +371,6 @@ body
       font-weight: 100
       padding-bottom: 5px
   +button(30%,35%)
-  +stripes($blue)
 
 .five
   background-color: $blue
@@ -558,8 +474,14 @@ body
       margin-left: 10%
       margin-right: 10%
       font-weight: 300
-      padding-bottom: 15px
+      //padding-bottom: 15px
       font-size: 1em
+      a
+        border-bottom: 1px dashed blue
+        color: blue
+        &:hover
+          text-decoration: none
+          border-bottom: 1px solid blue
   +button(30%,35%)
 
 .seven
@@ -914,3 +836,12 @@ body
   left: 0
   //margin-top: 0
   width: 100%
+
+.white-popup-block
+  position: relative
+  background: #FFF
+  padding: 20px
+  width: auto
+  max-width: 500px
+  margin: 20px auto
+  +button(75%, 12.5%)

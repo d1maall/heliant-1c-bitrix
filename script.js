@@ -91,11 +91,9 @@ $(document).ready(function() {
             $(".left-arrow").click(function(){
                 $.fn.fullpage.moveSlideLeft();
             });
-
             $(".right-arrow").click(function(){
                 $.fn.fullpage.moveSlideRight();
             });
-
             $('.autoplay').slick({
                 slidesToShow: 3,
                 slidesToScroll: 1,
@@ -116,6 +114,11 @@ $(document).ready(function() {
             var my13stripes = $(".stripes").height();
             var my13mt = (my13screen - my13contacts - my13title - my13stripes)/2;
             $(".contactus").css("bottom", my13mt);
+
+            $('.popup-with-form').magnificPopup({
+                type: 'inline',
+                preloader: false
+            });
 
             /*setInterval(function () {
                 $.fn.fullpage.moveSlideRight();
